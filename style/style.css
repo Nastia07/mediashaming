@@ -133,10 +133,9 @@ button {
 
 .companies__item:hover,
 .companies__item:focus {
-  text-decoration: underline;
   color: var(--orange);
   border-color: var(--orange);
-  transform: scale(1.1);
+  transform: scale(1.01);
 }
 
 .companies__btn {
