@@ -1,0 +1,156 @@
+:root {
+  --orange: #ff7a00;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+h1 {
+  font-size: 35px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--orange);
+}
+
+.container {
+  padding-left: 190px;
+  padding-right: 190px;
+}
+
+.hero__wrap {
+  width: 100%;
+  height: 100vh;
+
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  background: url("/img/banner_bg.jpg");
+  background-size: cover;
+  color: white;
+}
+
+.hero__wrap h1 {
+  margin-bottom: 30px;
+  width: 66%;
+  text-transform: uppercase;
+}
+
+.hero__wrap p {
+  width: 50%;
+  margin-bottom: 30px;
+}
+
+.hero__btn {
+  width: 230px;
+  height: 55px;
+  text-transform: uppercase;
+  color: white;
+  background-color: var(--orange);
+  font-weight: 700;
+  font-size: inherit;
+  border-radius: 27.5px;
+
+  transition: all 0.4s ease;
+}
+
+.hero__btn:focus,
+.hero__btn:hover {
+  background-color: white;
+  color: var(--orange);
+}
+
+.war_info__inner {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.war_info__inner p {
+  padding: 15px 0;
+}
+
+@media screen and (max-width: 1420px) {
+  .container {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .hero__wrap h1 {
+    width: 100%;
+  }
+
+  .hero__wrap p {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .hero__wrap h1 {
+    margin-bottom: 20px;
+  }
+
+  .hero__wrap p {
+    width: 100%;
+    margin-bottom: 20px 0;
+  }
+
+  .hero__btn {
+    height: 45px;
+  }
+}
