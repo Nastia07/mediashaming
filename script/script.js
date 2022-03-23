@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         `<a href="${company.link}"  target="_blank" class="companies__item">
         <img src="${company.src}" alt="logo">
         <div class="company__name">${company.name}</div>
-        <div class="companies__btn">&#36;</div>
+        <div class="companies__btn">View funding</div>
       </a>
     `
       )
@@ -125,7 +125,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
   setCompanies(agriculturalCompanies, agriculturalCompaniesNode);
   setCompanies(bankCompanies, bankCompaniesNode);
 
-  let swiperLength = document.getElementsByClassName("war_info__slider").length;
+  const swiperLength =
+    document.getElementsByClassName("war_info__slider").length;
   if (swiperLength > 0) {
     var swiper = new Swiper(".war_info__slider", {
       watchOverflow: true,
