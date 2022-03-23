@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const autoCompanies = [
     {
       name: "Renault",
-      src: ".public/img/companies/auto1.png",
+      src: "./public/img/companies/auto1.png",
       link: "#",
     },
     {
