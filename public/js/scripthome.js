@@ -9,98 +9,98 @@ document.addEventListener("DOMContentLoaded", function (event) {
   const foodCompanies = [
     {
       name: "Unilever",
-      src: "/public/img/companies/1.png",
+      src: "./public/img/companies/1.png",
       link: "#",
     },
     {
       name: "Metro AG",
-      src: "/public/img/companies/2.png",
+      src: "./public/img/companies/2.png",
       link: "#",
     },
     {
       name: "Danone",
-      src: "/public/img/companies/3.png",
+      src: "./public/img/companies/3.png",
       link: "#",
     },
     {
       name: "Nestlé",
-      src: "/public/img/companies/4.png",
+      src: "./public/img/companies/4.png",
       link: "nestle.html",
     },
     {
       name: "Johnson & Johnson",
-      src: "/public/img/companies/5.png",
+      src: "./public/img/companies/5.png",
       link: "#",
     },
     {
       name: "Auchan",
-      src: "/public/img/companies/6.png",
+      src: "./public/img/companies/6.png",
       link: "auchan.html",
     },
   ];
   const autoCompanies = [
     {
       name: "Renault",
-      src: "/public/img/companies/auto1.png",
+      src: ".public/img/companies/auto1.png",
       link: "#",
     },
     {
       name: "SKF",
-      src: "/public/img/companies/auto2.png",
+      src: "./public/img/companies/auto2.png",
       link: "skf.html",
     },
     {
       name: " Bosch",
-      src: "/public/img/companies/auto3.png",
+      src: "./public/img/companies/auto3.png",
       link: "#",
     },
     {
       name: "Danieli",
-      src: "/public/img/companies/auto4.png",
+      src: "./public/img/companies/auto4.png",
       link: "#",
     },
     {
       name: "Grundfos",
-      src: "/public/img/companies/auto5.png",
+      src: "./public/img/companies/auto5.png",
       link: "#",
     },
     {
       name: "Geberit",
-      src: "/public/img/companies/auto6.png",
+      src: "./public/img/companies/auto6.png",
       link: "#",
     },
   ];
   const agriculturalCompanies = [
     {
       name: "Syngenta",
-      src: "/public/img/companies/ag1.png",
+      src: "./public/img/companies/ag1.png",
       link: "#",
     },
     {
       name: "Tetra Pak",
-      src: "/public/img/companies/ag2.jpg",
+      src: "./public/img/companies/ag2.jpg",
       link: "tetrapak.html",
     },
     {
       name: "Dow Chemical",
-      src: "/public/img/companies/ag3.png",
+      src: "./public/img/companies/ag3.png",
       link: "#",
     },
   ];
   const bankCompanies = [
     {
       name: "UniCredit",
-      src: "/public/img/companies/bank1.png",
+      src: "./public/img/companies/bank1.png",
       link: "#",
     },
     {
       name: "CreditSuisse",
-      src: "/public/img/companies/bank2.png",
+      src: "./public/img/companies/bank2.png",
       link: "#",
     },
     {
       name: "Lloyds insurance",
-      src: "/public/img/companies/bank3.png",
+      src: "./public/img/companies/bank3.png",
       link: "lloyd.html",
     },
   ];
