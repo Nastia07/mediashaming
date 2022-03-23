@@ -87,7 +87,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
       link: "#",
     },
   ];
-
   const bankCompanies = [
     {
       name: "UniCredit",
@@ -113,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         `<a href="${company.link}"  target="_blank" class="companies__item">
         <img src="${company.src}" alt="logo">
         <div class="company__name">${company.name}</div>
-        <div class="companies__btn">View funding</div>
+        <div class="company__link">View funding</div>
       </a>
     `
       )
@@ -125,10 +124,34 @@ document.addEventListener("DOMContentLoaded", function (event) {
   setCompanies(agriculturalCompanies, agriculturalCompaniesNode);
   setCompanies(bankCompanies, bankCompaniesNode);
 
+  const companiesAccordionHead = document.getElementsByClassName(
+    "companies__btn_show"
+  );
+
+  function showAcc() {
+    const firstArea = companiesAccordionHead[0].nextElementSibling;
+    companiesAccordionHead[0].classList.add("active");
+    firstArea.classList.add("active");
+
+    [...companiesAccordionHead].forEach((e, i) =>
+      setTimeout(function () {
+        e.addEventListener("click", function () {
+          if (window.innerWidth <= 1024) {
+            this.classList.toggle("active");
+            let panel = this.nextElementSibling;
+            panel.classList.toggle("active");
+          }
+        });
+      }, 300)
+    );
+  }
+
+  showAcc();
+
   const swiperLength =
     document.getElementsByClassName("war_info__slider").length;
   if (swiperLength > 0) {
-    var swiper = new Swiper(".war_info__slider", {
+    let swiper = new Swiper(".war_info__slider", {
       watchOverflow: true,
       loop: true,
       speed: 3500,

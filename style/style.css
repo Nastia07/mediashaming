@@ -166,19 +166,30 @@ button {
   transition: all 0.5s ease;
 }
 
+.companies__btn_show {
+  width: 100%;
+  text-align: left;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 600;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
 .companies__item:hover,
 .companies__item:focus {
+  color: var(--orange);
   border-color: var(--orange);
 }
 
-.companies__item:hover .companies__btn,
-.companies__item:focus .companies__btn {
+.companies__item:hover .company__link,
+.companies__item:focus .company__link {
   background-color: #fff;
   border-color: var(--orange);
   color: var(--orange);
 }
 
-.companies__btn {
+.company__link {
   background-color: var(--orange);
   width: 100px;
   height: 50px;
@@ -270,6 +281,44 @@ button {
   .war_info__slider .swiper-slide {
     height: 255px;
   }
+
+  .companies__btn_show {
+    padding-right: 40px;
+  }
+  .companies__btn_show::after,
+  .companies__btn_show::before {
+    position: absolute;
+    content: "";
+    width: 22.5px;
+    height: 0px;
+    border: 0.5px solid #000000;
+    top: 8px;
+    right: 13px;
+    transition: all 0.3s ease;
+  }
+  .companies__btn_show:hover {
+    color: var(--orange);
+  }
+  .companies__btn_show:hover::after,
+  .companies__btn_show:hover::before {
+    border-color: var(--orange);
+  }
+
+  .companies__btn_show::before {
+    transform: rotate(-90deg);
+  }
+
+  .companies__btn_show.active::before {
+    transform: rotate(0deg);
+  }
+
+  .companies__list {
+    display: none;
+  }
+  .companies__list.active {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -299,8 +348,13 @@ button {
     height: 45px;
   }
 
-  .companies__list {
-    display: grid;
-    grid-template-columns: 1fr;
+  .companies__item {
+    padding: 20px 10px;
+  }
+  .companies__item img {
+    width: 55px;
+  }
+  .scroll__down {
+    bottom: 20px;
   }
 }
