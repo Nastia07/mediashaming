@@ -860,17 +860,13 @@ body.active:before {
   -moz-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  cursor: pointer;
   -webkit-transition: -webkit-filter 0.14s ease-in-out;
   transition: -webkit-filter 0.14s ease-in-out;
   -moz-transition: filter 0.14s ease-in-out;
   transition: filter 0.14s ease-in-out;
   transition: filter 0.14s ease-in-out, -webkit-filter 0.14s ease-in-out;
 }
-.button--green:hover {
-  -webkit-filter: brightness(1.1);
-  filter: brightness(1.1);
-}
+
 .button--orange {
   width: 13.8125em;
   color: #fff;
