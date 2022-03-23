@@ -87,7 +87,7 @@ button {
   display: grid;
   align-content: center;
   justify-content: center;
-  background: url("/img/banner_bg.jpg");
+  background: url("/public/img/banner_bg.jpg");
   background-size: cover;
   color: white;
 }
@@ -119,6 +119,9 @@ button {
 }
 
 .hero__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 230px;
   height: 55px;
   text-transform: uppercase;
