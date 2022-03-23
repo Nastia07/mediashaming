@@ -87,7 +87,7 @@ button {
   display: grid;
   align-content: center;
   justify-content: center;
-  background: url("/public/img/banner_bg.jpg");
+  background: url("./public/img/banner_bg.jpg");
   background-size: cover;
   color: white;
 }
