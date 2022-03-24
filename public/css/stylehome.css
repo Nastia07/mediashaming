@@ -174,6 +174,7 @@ button {
 }
 
 .companies__btn_show {
+  cursor: default;
   width: 100%;
   text-align: left;
   font-size: 18px;
@@ -290,25 +291,29 @@ button {
   }
 
   .companies__btn_show {
+    background-color: #fff;
+    color: #000000;
     padding-right: 40px;
   }
   .companies__btn_show::after,
   .companies__btn_show::before {
     position: absolute;
     content: "";
-    width: 22.5px;
+    width: 15px;
     height: 0px;
+    background-color: black;
     border: 0.5px solid #000000;
-    top: 8px;
+    top: calc(50% - 5px);
     right: 13px;
     transition: all 0.3s ease;
   }
   .companies__btn_show:hover {
-    color: var(--orange);
+    color: var(--grey);
   }
   .companies__btn_show:hover::after,
   .companies__btn_show:hover::before {
-    border-color: var(--orange);
+    border-color: var(--grey);
+    background-color: var(--grey);
   }
 
   .companies__btn_show::before {
@@ -332,14 +337,35 @@ button {
   body {
     font-size: 14px;
   }
+  h1 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
 
   .container {
     padding-left: 30px;
     padding-right: 30px;
   }
 
-  h1 {
-    font-size: 24px;
+  .header__wrap {
+    padding: 10px 20px;
+  }
+
+  .footer__wrap {
+    padding: 30px 20px;
+  }
+
+  .hero__wrap {
+    height: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .scroll__down {
+    display: none;
   }
 
   .hero__wrap h1 {
