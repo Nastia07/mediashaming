@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     {
       name: "Syngenta",
       src: "./public/img/companies/ag1.png",
-      link: "#",
+      link: "syngenta.html",
     },
     {
       name: "Tetra Pak",
