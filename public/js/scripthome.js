@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     elementArray.forEach((company) =>
       parent.insertAdjacentHTML(
         "beforeend",
-        `<a href="${company.link}"  target="_blank" class="companies__item">
+        `<a href="${company.link}" class="companies__item">
         <img src="${company.src}" alt="logo">
         <div class="company__name">${company.name}</div>
         <div class="company__link">View funding</div>
