@@ -145,7 +145,8 @@ button {
 }
 
 .companies__area {
-  margin-top: 60px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .companies__list {
@@ -262,10 +263,6 @@ button {
   .war_info__text {
     padding-top: 50px;
   }
-
-  .companies__area {
-    margin-top: 20px;
-  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -331,6 +328,11 @@ button {
     display: grid;
     grid-template-columns: 1fr;
   }
+
+  .companies__area {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -389,5 +391,10 @@ button {
   }
   .scroll__down {
     bottom: 20px;
+  }
+
+  .companies__area {
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 }
