@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     {
       name: "Danieli",
       src: "./public/img/companies/auto4.png",
-      link: "#",
+      link: "danieli.html",
     },
     {
       name: "Grundfos",
