@@ -741,8 +741,7 @@ body.active:before {
 }
 @media (orientation: portrait) and (max-width: 500px) {
   .companies {
-    padding: 1.6em;
-    padding-top: 0.3em;
+    padding: 0.3em 0 0;
   }
   .companies .title--h2 {
     padding-left: 0;
@@ -762,11 +761,12 @@ body.active:before {
     margin-bottom: 0;
   }
   .companies__item_left {
-    margin-bottom: 1em;
+    margin: 0 0 1em;
+    width: 100%;
   }
   .companies__item_right {
     padding: 0 1em;
-    margin-bottom: 1em;
+    margin: 0 0 1em;
   }
 }
 .asc {
