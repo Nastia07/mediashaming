@@ -424,6 +424,12 @@ body.active:before {
   top: 0;
 }
 
+.header img {
+  width: 70px;
+  position: absolute;
+  left: 15px;
+}
+
 .header .button--orange {
   position: absolute;
   right: 15px;
@@ -443,6 +449,11 @@ body.active:before {
     margin-top: 5px;
     padding: 6px;
     width: 50vw;
+  }
+  .header img {
+    width: 100px;
+    margin: 10px;
+    position: static;
   }
 }
 

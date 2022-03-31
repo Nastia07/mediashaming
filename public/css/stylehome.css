@@ -68,6 +68,12 @@ button {
 .header__wrap {
   padding: 19px 30px;
 }
+
+.header__wrap img {
+  position: absolute;
+  width: 70px;
+  left: 30px;
+}
 .header__wrap,
 .footer__wrap {
   width: 100%;
@@ -354,6 +360,10 @@ button {
 
   .header__wrap {
     padding: 10px 20px;
+  }
+  .header__wrap img {
+    position: static;
+    left: 20px;
   }
 
   .footer__wrap {
