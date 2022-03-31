@@ -499,11 +499,13 @@ body.active:before {
   padding-left: 1.5em;
   grid-area: c;
 }
+
 .top__text.change {
   margin-top: -5em;
 }
 .top__text p {
   line-height: 120%;
+  padding-bottom: 7px;
 }
 .top__img {
   width: 15.8em;
@@ -524,7 +526,7 @@ body.active:before {
   }
   .top {
     padding-top: 0;
-    padding-bottom: 0;
+    padding-bottom: 10px;
   }
   .top .title--h1 {
     text-transform: uppercase;
@@ -882,11 +884,15 @@ body.active:before {
   font-weight: 700;
   text-align: left;
 }
+
 .title--h2 {
   font-size: 1.5em;
   line-height: 125%;
   margin-top: 1.4em;
   margin-bottom: 0.8em;
+}
+.title--h2 > p {
+  padding-top: 10px;
 }
 @media (orientation: portrait) {
   .title--h1 {
