@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Companies that support war</title>
+
+  <link rel="stylesheet" href="./public/css/stylehome.css">
+  <link rel="stylesheet" href="./public/css/swiper-bundle.min.css">
+  <link rel="stylesheet" href="./public/css/filter.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+</head>
+
+<body>
+  <header>
+    <div class="header__wrap">
+      <img src="./dru.png" alt="dru">
+      <h3>Companies that support war</h3>
+    </div>
+  </header>
+
+  <main>
+    <div class="companies__wrap container">
+      <h2>Companies that support war</h2>
+      <div class="filter">
+        <div class="filter__header">
+          <form action="" id="filter">
+            <div class="filter__input">
+              <div class="input">
+                <label for="search" style="display: none">search</label>
+                <input
+                  id="search"
+                  type="text"
+                  class="input__item input__item--search"
+                  placeholder="Search"
+                  autocomplete="off"
+                >
+                <button class="input__submit">
+                  <svg class="input__icon" width="27" height="25" viewBox="0 0 27 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M17.3555 15.2371C17.1493 15.0464 16.8789 14.9405 16.5981 14.9405H16.2845C16.2131 14.9405 16.1441 14.9143 16.0908 14.8668V14.8668C15.9687 14.7582 15.9603 14.5708 16.0662 14.4464C17.2437 13.0615 17.8333 11.2336 17.4818 9.2971C16.9694 6.50055 14.4403 4.26734 11.3879 3.92532C6.77656 3.40222 2.90653 6.98341 3.46251 11.2386C3.83316 14.0553 6.25329 16.3891 9.28389 16.8619C11.3935 17.1879 13.3842 16.6364 14.8878 15.5384C15.0143 15.446 15.1895 15.4537 15.3027 15.562V15.562C15.3646 15.6212 15.3996 15.7032 15.3996 15.7888V16.0468C15.3996 16.3034 15.507 16.5483 15.6958 16.7221L20.0436 20.7247C20.4906 21.1372 21.2101 21.1372 21.6571 20.7247L21.668 20.7147C22.1149 20.3022 22.1149 19.6383 21.668 19.2259L17.3555 15.2371ZM10.494 14.9404C7.77957 14.9404 5.58838 12.9184 5.58838 10.4136C5.58838 7.90881 7.77957 5.88684 10.494 5.88684C13.2085 5.88684 15.3997 7.90881 15.3997 10.4136C15.3997 12.9184 13.2085 14.9404 10.494 14.9404Z" fill="#606060"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="table">
+        <div class="table__header">
+          <div class="table__text table__cell">Logo</div>
+          <div class="table__text table__cell">Name</div>
+          <div class="table__text table__cell">Status</div>
+        </div>
+        <div id="search-body" class="table__body"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer__wrap">
+      <h3>Companies that support war</h3>
+    </div>
+  </footer>
+
+  <script>
+    const body = document.getElementById('search-body')
+    try {
+      fetch('https://api.airtable.com/v0/appuRF8EsJqiqYYR0/Grid%20view?api_key=keyPyOgHCLHxxHwae')
+        .then(response => response.json())
+        .then(data => data.records.forEach(record => {
+
+          return body.insertAdjacentHTML('beforeend', `
+            <div class="table__item js-table-item">
+              <div class="table__logo table__cell" data-content="Logo">
+                <img src="${record.fields.Logo[0].url}" alt="logo">
+              </div>
+              <div class="table__text table__cell js-search-by-name" data-content="Name">
+                ${record.fields.Name}
+              </div>
+              <div class="table__text table__cell" data-content="Status">
+                ${record.fields.Status}
+              </div>
+              <div class="table__button table__cell">
+                <a href="#" class="button">View funding</a>
+              </div>
+            </div>`
+          )
+        })).then(()=> {
+        const search = document.getElementById('search-body');
+        const input = document.getElementById('search')
+        if(search && input) {
+          const items = search.querySelectorAll(".js-table-item");
+          input.addEventListener('input', (e) => {
+            const val = e.target.value.toLowerCase();
+            Array.from(items)
+              .forEach(item => {
+                const text = item.querySelector('.js-search-by-name')
+                if(text.innerText && text.innerText.toLowerCase().indexOf(val) > -1 ) {
+                  item.removeAttribute("style");
+                } else {
+                  item.setAttribute('style', 'display: none !important')
+                }
+              })
+          })
+        }
+      })
+    } catch (err) {
+      console.log(err)
+    }
+  </script>
+
+</body>
+
+</html>
