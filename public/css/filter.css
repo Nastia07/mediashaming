@@ -1,5 +1,4 @@
 .filter {
-  padding-top: 48px;
   padding-bottom: 34px;
 }
 
@@ -130,6 +129,10 @@
   height: 80px;
   max-width: 100%;
   object-fit: contain;
+}
+
+.heading-title {
+  margin-bottom: 48px;
 }
 
 @media (max-width: 1024px) {
