@@ -93,6 +93,13 @@ button {
 .footer__wrap {
   padding: 74px 30px;
 }
+
+.footer__wrap a {
+  position: absolute;
+  left: 70px;
+  transform: translate(0, -20%);
+}
+
 .hero__wrap {
   position: relative;
   width: 100%;
@@ -347,6 +354,9 @@ button {
     padding-top: 20px;
     padding-bottom: 20px;
   }
+  .footer__wrap a {
+    left: 50px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -376,6 +386,12 @@ button {
 
   .footer__wrap {
     padding: 30px 20px;
+  }
+
+  .footer__wrap a {
+    position: static;
+    margin-bottom: 10px;
+    transform: translate(0);
   }
 
   .hero__wrap {

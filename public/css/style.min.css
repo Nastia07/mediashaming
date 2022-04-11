@@ -425,12 +425,6 @@ body.active:before {
   z-index: 999;
 }
 
-.header img {
-  width: 70px;
-  position: absolute;
-  left: 15px;
-}
-
 .header .button--orange {
   position: absolute;
   right: 15px;
@@ -438,7 +432,7 @@ body.active:before {
   width: 12em;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 779px) {
   .header {
     flex-direction: column;
     height: 100%;
@@ -450,11 +444,6 @@ body.active:before {
     margin-top: 5px;
     padding: 6px;
     width: 50vw;
-  }
-  .header img {
-    width: 100px;
-    margin: 10px;
-    position: static;
   }
 }
 
@@ -475,21 +464,20 @@ body.active:before {
 .footer {
   height: 8.625em;
   background: #292929;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -moz-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
   color: #fff;
   text-transform: uppercase;
 }
+
+.footer img {
+  width: 100px;
+  position: absolute;
+  left: 100px;
+  transform: translate(0, -55%);
+}
+
 .top {
   padding: 40px;
 }
@@ -532,7 +520,7 @@ body.active:before {
   }
 }
 
-@media (orientation: portrait) and (max-width: 500px) {
+@media (orientation: portrait) and (max-width: 779px) {
   .top__text.change {
     margin-top: 0em;
   }
@@ -572,6 +560,16 @@ body.active:before {
   .container {
     padding-left: 20px;
     padding-right: 20px;
+  }
+
+  .footer {
+    flex-direction: column;
+  }
+  .footer img {
+    width: auto;
+    margin-bottom: 15px;
+    position: static;
+    transform: translate(0);
   }
 }
 .stat {
