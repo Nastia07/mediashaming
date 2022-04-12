@@ -74,14 +74,23 @@ button {
 }
 
 .header__wrap {
-  padding: 19px 30px;
+  padding: 25px 30px;
+}
+.logo {
+  position: absolute;
+  left: 70px;
+  color: white;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  top: 11px;
 }
 
-.header__wrap img {
-  position: absolute;
+.logo img {
   width: 70px;
-  left: 30px;
+  margin-right: 10px;
 }
+
 .header__wrap,
 .footer__wrap {
   width: 100%;
@@ -297,6 +306,23 @@ button {
     font-size: 28px;
   }
 
+  .header__wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .logo {
+    position: static;
+  }
+
+  .logo img {
+    width: 50px;
+  }
+
   .hero__wrap h1 {
     width: 100%;
   }
@@ -378,10 +404,6 @@ button {
 
   .header__wrap {
     padding: 10px 20px;
-  }
-  .header__wrap img {
-    position: static;
-    left: 20px;
   }
 
   .footer__wrap {
