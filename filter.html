@@ -19,7 +19,10 @@
 <body>
   <header>
     <div class="header__wrap">
-      <img src="./dru.png" alt="dru">
+      <a href="/" class="logo">
+        <img src="./public/img/main_logo.svg" alt="money">
+        <span>DON'T FUND</span>
+      </a>
       <h3>Companies that support war</h3>
     </div>
   </header>
@@ -58,6 +61,7 @@
           <div class="table__text table__cell">Status</div>
         </div>
         <div id="search-body" class="table__body"></div>
+        <div class="js-scroll-trigger-infinite-scroll"></div>
       </div>
       <div id="search-empty" style="display: none">
         <h2 class="heading-title">Request not found. Please try another item.</h2>
@@ -102,6 +106,9 @@
 
   <footer>
     <div class="footer__wrap">
+      <a href="http://dru.in.ua" target="_blank">
+        <img src="./dru.svg" alt="dru">
+      </a>
       <h3>Companies that support war</h3>
     </div>
   </footer>
@@ -110,37 +117,94 @@
     const body = document.getElementById('search-body')
     const empty = document.getElementById('search-empty')
     const table = document.getElementById('search-table')
-    try {
-      fetch('https://api.airtable.com/v0/appuRF8EsJqiqYYR0/Grid%20view?api_key=keyPyOgHCLHxxHwae')
-        .then(response => response.json())
-        .then(data => data.records.forEach(record => {
+    const trigger = document.querySelector('.js-scroll-trigger-infinite-scroll')
+    const arr = []
+    let offset = 0;
+    // let infinite_scroll_offset = 0
 
-          return body.insertAdjacentHTML('beforeend', `
-            <div class="table__item js-table-item">
-              <div class="table__logo table__cell" data-content="Logo">
-                <img src="${record.fields.Logo[0].url}" alt="logo">
-              </div>
-              <div class="table__text table__cell js-search-by-name" data-content="Name">
-                ${record.fields.Name}
-              </div>
-              <div class="table__text table__cell" data-content="Status">
-                ${record.fields.Status}
-              </div>
-              <div class="table__button table__cell">
-                <a href="#" class="button">View funding</a>
-              </div>
-            </div>`
-          )
-        })).then(()=> {
+    const getBrands = async (offset) => {
+      const API_URL = `https://api.airtable.com/v0/appuRF8EsJqiqYYR0/Grid%20view?api_key=keyPyOgHCLHxxHwae&pageSize=10&offset=${offset}`;
+      const response = await fetch(API_URL);
+      if (!response.ok) {
+        throw new Error(`An error occurred: ${response.status}`);
+      }
+      return response.json();
+    }
+
+    const brand = (logo, name, status) => `
+      <div class="table__item js-table-item">
+          <div class="table__logo table__cell" data-content="Logo">
+            <img src="${logo ? logo : 'https://place-hold.it/300x150'}" alt="logo">
+          </div>
+          <div class="table__text table__cell js-search-by-name" data-content="Name">
+            ${name}
+          </div>
+          <div class="table__text table__cell" data-content="Status">
+            ${status}
+          </div>
+          <div class="table__button table__cell">
+            <a href="#" class="button">View funding</a>
+          </div>
+        </div>
+    `
+
+    function recursiveGetAllItems() {
+      if(offset === undefined) {
+        return arr.flat().forEach(item => {
+          if(item.fields.Logo[0].url !== undefined) {
+            body.insertAdjacentHTML('beforeend',
+              brand(
+                item.fields.Logo[0].url,
+                item.fields.Name,
+                item.fields.Status,
+              )
+            )
+          }
+        })
+      }
+      fetch(`https://api.airtable.com/v0/appuRF8EsJqiqYYR0/Grid%20view?api_key=keyPyOgHCLHxxHwae&offset=${offset}`)
+        .then(response => response.json())
+        .then(data => {
+          offset = data.offset
+          arr.push(data.records)
+          recursiveGetAllItems()
+        })
+    }
+    try {
+      recursiveGetAllItems()
+
+      //or get items by scroll
+
+      // const intersectionObserver = new IntersectionObserver(
+      //   (entries) => {
+      //     if (entries[0].intersectionRatio <= 0) return;
+      //     if(infinite_scroll_offset === undefined) return;
+      //
+      //     getBrands(infinite_scroll_offset)
+      //       .then((data) => {
+      //         infinite_scroll_offset = data.offset;
+      //         data.records.forEach(item => {
+      //           if (item.fields.Logo[0].url !== undefined) {
+      //             body.insertAdjacentHTML('beforeend',
+      //               brand(
+      //                 item.fields.Logo ? item.fields.Logo[0].url : 'https://place-hold.it/300x500',
+      //                 item.fields.Name,
+      //                 item.fields.Status,
+      //               ))
+      //           }
+      //         })
+      //       })
+      //   });
+      //   intersectionObserver.observe(trigger);
+
         const search = document.getElementById('search-body');
         const input = document.getElementById('search')
 
         if(search && input) {
-          const items = search.querySelectorAll(".js-table-item");
           input.addEventListener('input', (e) => {
             const val = e.target.value.toLowerCase();
             let isSearchResultEmpty = 0
-            Array.from(items)
+            Array.from(search.querySelectorAll(".js-table-item"))
               .forEach(item => {
                 const text = item.querySelector('.js-search-by-name')
 
@@ -151,7 +215,7 @@
                   item.setAttribute('style', 'display: none !important')
                   isSearchResultEmpty+=1
                 }
-                if(isSearchResultEmpty >= items.length) {
+                if(isSearchResultEmpty >= search.querySelectorAll(".js-table-item").length) {
                   empty.removeAttribute("style");
                   table.setAttribute('style', 'display: none !important')
                 } else {
@@ -161,7 +225,6 @@
               })
           })
         }
-      })
     } catch (err) {
       console.log(err)
     }
